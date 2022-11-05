@@ -16,7 +16,7 @@ while read _user; do
 		_senha='Null'
 	fi
 	suser=$(echo -e "\033[1;31m[\033[1;36m$i\033[1;31m] \033[1;37m- \033[1;32m$_user\033[0m")
-    ssenha=$(echo -e "\033[1;33mSenha\033[1;37m: $_senha")
+    ssenha=$(echo -e "\033[1;33mPass\033[1;37m: $_senha")
     printf '%-60s%s\n' "$suser" "$ssenha"
 	_userPass+="\n${_oP}:${_user}"
 done <<< "${_userT}"
