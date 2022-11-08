@@ -1,9 +1,9 @@
 #!/bin/bash
 [[ $(screen -list| grep -c 'bot_teste') == '0' ]] && {
     clear
-    echo -e "\E[44;1;37m     ATIVACÃO BOT SSH TESTE     \E[0m"
+    echo -e "\E[44;1;37m     ACTIVACIÓN BOT SSH TEST     \E[0m"
     echo ""
-    echo -ne "\033[1;32mINFORME O TOKEN\033[1;37m: "; read token
+    echo -ne "\033[1;32mCONFIRME SU TOKEN\033[1;37m: "; read token
     cd /etc/VPSManager
     screen -dmS bot_teste ./botsshteste $token > /dev/null 2>&1
     [[ $(grep -wc "bot_teste" /etc/autostart) = '0' ]] && {
@@ -12,8 +12,8 @@
                 sed -i '/bot_teste/d' /etc/autostart
                 echo -e "ps x | grep 'bot_teste' | grep -v 'grep' || cd /etc/VPSManager && sudo screen -dmS bot_teste ./botsshteste $token && cd $HOME" >>/etc/autostart
             }  
-    clear && echo "BOT ATIVADO"
+    clear && echo "BOT ACTIVADO"
 } || {
     screen -r -S "bot_teste" -X quit
-    clear && echo "BOT DESATIVADO"
+    clear && echo "BOT DESACTIVADO"
 }
